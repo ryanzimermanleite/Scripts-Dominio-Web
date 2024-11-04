@@ -1,0 +1,25 @@
+-- Desconecta usuários do Domínio v1.6 --
+
+Esse script seleciona todos os usuários e tira a seleção dos que não serão desconectados.
+
+O arquivo "Dados.txt" é onde ficaram armazenados o usuário e a senha com acesso para desconectar usuários, o tempo de espera para atualizar a lista de usuários conectados e a hora que o script irá iniciar e pausar, "0" em iniciar para executar sem interrupções.
+
+Para desativar o horário de encerramento, coloque 0 no arquivo "Dados.txt".
+
+A pasta "Users" é onde ficaram as imagens dos usuários que não iram desconectar.
+
+A pasta "imgs" é onde ficam as imagens fixas que o script precisa para funcionar.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+A tela de conexões ao banco de dados do Domínio deve estar aberta ao iniciar o script.
+
+O script incerra se não encontrar a tela de conexões após 60 segundos logo ao iniciar ou após 30 segundos se casso já tenha encontrado a tela de conexões pelo menos uma vez.
+
+Para encerrar basta fechar a tela de conxeões que o script para após 30 segundos
+
+Existe uma pausa de segurança caso a tela de conexões for minimizada ou se algum menu da tela for aberto, apenas volte o foco para a janela de conexoes ou feche os menus que o script continua normalmente, após 30 segundos de pausa o script encerra.
+
+Se o usuário e(ou) a senha inseridos em "Dados.txt" estiver(em) incorreto(os), o script encerra.
+
+Se a pasta "Users" estiver vazia, o script encerra.

@@ -1,0 +1,47 @@
+1.0 - Criar 4 colunas com o nome '2040-Aliquota Interna' após a coluna 'vlr_fcp'(AY) na 'planilha_saida_dominio.xlsx' 
+
+1.1 - Criar 4 colunas com o nome '3093-Isenção' após a ultima coluna com nome '2040-Aliquota Interna' na 'planilha_saida_dominio.xlsx' 
+
+1.2 - Criar 2 colunas com o nome '2046 - Aliquota de PIS e COFINS' após a ultima coluna com o nome '3093-Isenção' na 'planilha_saida_dominio.xlsx' 
+
+2- Se 'planilha_exportada_kolossus.xlsx' possui a aba 2040:
+	Ler linha por linha da 'planilha_saida_dominio.xlsx' capturando o valor da coluna 'codi_pdi'(I) 
+		Ignorar as 12 primeiras linhas da aba 2040 da 'planilha_exportada_kolossus.xlsx' e
+			Ler Linha por linha da aba 2040 verificando o valor da coluna 'CODIGO_PRODUTO'(B) até encontrar 
+			o mesmo valor da coluna 'codi_pdi'(I)' da 'planilha_saida_dominio.xlsx' 
+			Se encontrar:
+				Verificar quantas vezes o valor 'CODIGO_PRODUTO'(B) se repete na planilha e retornar a coluna 'ALIQ_ICMS_INTRA'(F), 'CONDICIONAL_REDUCAO'(R), 				'CARGA_TRIB_BC_REDUZIDA'(T), 'ALERTA_SOBRE_REDUCAO'(U) e jogar nas 4 colunas '2040-Aliquota Interna' respectivamente da 'planilha_saida_dominio.xls',
+				caso não se repita mais que 4 vezes, deixar o restante das colunas vazias, essas colunas foram criadas no passo 1.0
+			Se não encontrar:
+				Escrever 'Não Encontrado' nas colunas.
+   Se 'planilha_exportada_kolossus.xlsx' não possui a aba 2040:
+	 Escrever 'Não possui aba 2040' nas 4 colunas '2040-Aliquota Interna' da 'planilha_saida_dominio.xlsx' criadas no passo 1.0
+
+
+3 - Se 'planilha_exportada_kolossus.xlsx' possui a aba 3093:
+	Ler linha por linha da 'planilha_saida_dominio.xlsx' capturando o valor da coluna 'codi_pdi'(I) 
+		Ignorar as 12 primeiras linhas da aba 3093 da 'planilha_exportada_kolossus.xlsx' e
+			Ler Linha por linha da aba 3093 verificando o valor da coluna 'CODIGO_PRODUTO'(A) até encontrar 
+			o mesmo valor da coluna 'codi_pdi'(I)' da 'planilha_saida_dominio.xlsx' 
+			Se encontrar:
+				Verificar quantas vezes o valor 'CODIGO_PRODUTO'(A) se repete na planilha e retornar a coluna 'FUNDAMENTO'(I) junto com a coluna 'ALERTA'(M) separando por ' - ' 
+				para cada vez que repetir e jogar nas 4 colunas '3093-Isenção' respectivamente da 'planilha_saida_dominio.xls', caso não se repita mais que 4 vezes, 
+				deixar o restante das colunas vazias, essas colunas foram criadas no passo 1.1
+			Se não encontrar:
+				Escrever 'Não Encontrado' nas colunas.
+	
+    Se 'planilha_exportada_kolossus.xlsx' não possui a aba 3093:
+	 Escrever 'Não possui aba 3093' nas 4 colunas '3093-Isenção' da 'planilha_saida_dominio.xlsx' criadas no passo 1.1
+
+4 - Se 'planilha_exportada_kolossus.xlsx' possui a aba 2046:
+	Ler linha por linha da 'planilha_saida_dominio.xlsx' capturando o valor da coluna 'codi_pdi'(I) 
+		Ignorar as 12 primeiras linhas da aba 2046 da 'planilha_exportada_kolossus.xlsx' e
+			Ler Linha por linha da aba 2046 verificando o valor da coluna 'COD_PRODUTO'(A) até encontrar 
+			o mesmo valor da coluna 'codi_pdi'(I)' da 'planilha_saida_dominio.xlsx' 
+			Se encontrar:
+				Verificar quantas vezes o valor 'COD_PRODUTO'(A) se repete na planilha e retornar a coluna 'CST'(O) para cada vez que repetir e jogar nas 2 colunas '2046 - Aliquota 					de PIS e COFINS' respectivamente da 'planilha_saida_dominio.xls', caso não se repita mais que 2 vezes, 
+				deixar o restante das colunas vazias, essas colunas foram criadas no passo 1.2
+			Se não encontrar:
+				Escrever 'Não Encontrado' nas colunas.
+    Se 'planilha_exportada_kolossus.xlsx' não possui a aba 2046:
+	 Escrever 'Não possui aba 2046' nas 2 colunas '2046 - Aliquota de PIS e COFINS' da 'planilha_saida_dominio.xlsx' criadas no passo 1.2

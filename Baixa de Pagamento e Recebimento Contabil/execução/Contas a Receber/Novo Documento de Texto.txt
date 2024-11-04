@@ -1,0 +1,23 @@
+def open_lista_dados(input_excel):
+    print('erro aqui')
+    workbook = ''
+    file = input_excel
+    print(file)
+    if not file:
+        print('nao arquivo')
+        return False
+    print('acho arquivo')
+    if file.endswith('.xls') or file.endswith('.XLS'):
+        print('chegou aquii')
+        try:
+            workbook = open_workbook(file)
+            workbook = workbook.sheet_by_index(0)#
+            print(workbook)
+        except Exception as e:
+            traceback_str = traceback.format_exc()
+            alert(f'Traceback: {traceback_str}\n\n'
+                  f'Erro: {e}')
+            print(f'Traceback: {traceback_str}\n\n'
+                  f'Erro: {e}')
+
+    return workbook
