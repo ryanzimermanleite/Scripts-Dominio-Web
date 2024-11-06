@@ -1,5 +1,0 @@
-Usuário: 
-Senha: 
-Refresh da lista: 90
-Iniciar: 0
-Pausar: 0
